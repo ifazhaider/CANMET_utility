@@ -15,16 +15,17 @@ import os
 
 #--------------------------------------------------------
 
-nthk = 16  #---number of nodes through thickness
-ncnt = 30  #---number of contours
-odbname= "main.odb"
-
+nthk = 6  #---number of nodes through thickness
+ncnt = 10  #---number of contours
+odbname= "5.odb"
+path1 = 'C:\\TEMP\\2023_June_K_valid\\ThreeDK\\'
 
 cont_name = []
 
 cont_field_coords = []
 
-temp_name = 'J at JINT_CRACK1__PICKEDSET19-'
+#temp_name = 'J at JINT_CRACK1__PICKEDSET19-'
+temp_name = 'K1 at H-OUTPUT-1_CRACK-1__PICKEDSET104-'
 
 jcontour_history = open('jcontour_hist.txt', 'w')   #---open file for dumping the stress strain curve
 jcontour_field   = open('jcontour_field.txt', 'w')   #---open file for dumping the stress strain curve
@@ -42,7 +43,8 @@ for i in range(1,ncnt+1):
 #---------------------------------------------------------
 #   read in the odb file 
 
-path1 = os.path.join(os.pardir, odbname)
+#path1 = os.path.join(os.pardir, odbname)
+path1 = path1 + odbname
 odb = openOdb(path = path1)					#---open the database
 #odb = openOdb(path = 'Job-1.odb')				#---open the database
 
@@ -92,7 +94,7 @@ jcontour_history.close()
 
 cont_name = []
 
-temp_name = 'JINT_CRACK1_J__PICKEDSET19-'
+temp_name = 'H-OUTPUT-1_CRACK-1_K__PICKEDSET104-'
 
 for i in range(1,ncnt+1):
     for j in range(1, nthk+1):
